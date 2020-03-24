@@ -54,3 +54,7 @@ docker exec --user www-data <nextcloud-container-id> php occ <your-command>
 # Remarks
 
 The `nginx.conf.sigil` template is from [here](https://github.com/dokku/dokku/blob/master/plugins/nginx-vhosts/templates/nginx.conf.sigil). This existence of this file in the root directory replaces the default dokku nginx config. The file was augmented to increase nginx's `client_max_body_size` in order to allow for larger uploads.
+
+# Known issues
+
+Since the nextcloud-apache runs behind the dokku-nginx, add `overwriteprotocol => "https"` to your nextcloud config.php ([see](https://help.nextcloud.com/t/cannot-grant-access/64566)).
