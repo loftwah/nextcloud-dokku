@@ -1,6 +1,6 @@
 # nextcloud-dokku
 
-This simple repo allows you to run a nextcloud instance with dokku using a linked postgres database. It has been tested with nextcloud version 18.0.2.
+This simple repo allows you to run a nextcloud instance with dokku using a linked postgres database. It has been tested with nextcloud version 18.0.3.
 
 # Prerequisites
 
@@ -49,6 +49,14 @@ dokku letsencrypt:cron-job --add
 
 ```
 docker exec --user www-data <nextcloud-container-id> php occ <your-command>
+```
+
+# Updating nextcloud
+
+Since the Dockerfile pulls always the latest Nextcloud image, an update can be performed by running:
+
+```
+dokku ps:rebuild your-dokku-app
 ```
 
 # Remarks
